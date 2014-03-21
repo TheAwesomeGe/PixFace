@@ -34,8 +34,9 @@ public class EmotionManager : MonoBehaviour {
 	
 	void FixedUpdate() {
 		if(shakeTime == 0) {
-			MouthManager.Instance.Shake();
-			EyeManager.Instance.Shake();
+			FaceManager.Instance.Mouth.Shake();
+			FaceManager.Instance.LeftEye.Shake();
+			FaceManager.Instance.RightEye.Shake();
 			shakeTime = 10;
 		}
 		else shakeTime--;
@@ -53,14 +54,16 @@ public class EmotionManager : MonoBehaviour {
 		bool[,] rightEyeShape = new bool[3,3] {{F, F, F},
 											   {T, T, F},
 											   {T, T, F}};
-		
-		MouthManager.Instance.SetColor(Color.green);
-		EyeManager.Instance.SetLeftEyeColor(Color.green);
-		EyeManager.Instance.SetRightEyeColor(Color.green);
-		
-		MouthManager.Instance.SetShape(mouthShape);
-		EyeManager.Instance.SetLeftEyeShape(leftEyeShape);
-		EyeManager.Instance.SetRightEyeShape(rightEyeShape);
+
+
+		FaceManager.Instance.Mouth.Color = Color.green;
+		FaceManager.Instance.LeftEye.Color = Color.green;
+		FaceManager.Instance.RightEye.Color = Color.green;
+
+		FaceManager.Instance.Mouth.Shape = mouthShape;
+		FaceManager.Instance.LeftEye.Shape = leftEyeShape;
+		FaceManager.Instance.RightEye.Shape = rightEyeShape;
+
 	}
 	
 	private void generateSadFace() {
@@ -76,13 +79,13 @@ public class EmotionManager : MonoBehaviour {
 											   {T, T, F},
 											   {T, T, F}};
 		
-		MouthManager.Instance.SetColor(Color.yellow);
-		EyeManager.Instance.SetLeftEyeColor(Color.yellow);
-		EyeManager.Instance.SetRightEyeColor(Color.yellow);
+		FaceManager.Instance.Mouth.Color = Color.yellow;
+		FaceManager.Instance.LeftEye.Color = Color.yellow;
+		FaceManager.Instance.RightEye.Color = Color.yellow;
 		
-		MouthManager.Instance.SetShape(mouthShape);
-		EyeManager.Instance.SetLeftEyeShape(leftEyeShape);
-		EyeManager.Instance.SetRightEyeShape(rightEyeShape);
+		FaceManager.Instance.Mouth.Shape = mouthShape;
+		FaceManager.Instance.LeftEye.Shape = leftEyeShape;
+		FaceManager.Instance.RightEye.Shape = rightEyeShape;
 	}
 	
 	private void generateSurpriseFace() {
@@ -95,11 +98,11 @@ public class EmotionManager : MonoBehaviour {
 											   {T, T, T},
 											   {T, T, T}};
 		
-		MouthManager.Instance.SetColor(Color.magenta);
-		EyeManager.Instance.SetLeftEyeColor(Color.magenta);
-		EyeManager.Instance.SetRightEyeColor(Color.magenta);
-		
-		EyeManager.Instance.SetLeftEyeShape(leftEyeShape);
-		EyeManager.Instance.SetRightEyeShape(rightEyeShape);
+		FaceManager.Instance.Mouth.Color = Color.magenta;
+		FaceManager.Instance.LeftEye.Color = Color.magenta;
+		FaceManager.Instance.RightEye.Color = Color.magenta;
+
+		FaceManager.Instance.LeftEye.Shape = leftEyeShape;
+		FaceManager.Instance.RightEye.Shape = rightEyeShape;
 	}
 }

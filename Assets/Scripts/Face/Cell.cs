@@ -1,20 +1,16 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class Cell : MonoBehaviour {
 	private bool shaken;
-	
+
+	public Color Color {
+		set {
+			renderer.material.SetColor ("_Color", value);
+		}
+	}
+
 	void Start() {
-				shaken = false;
-	}
-	
-	void Update() {
-	
-	}
-	
-	public void SetColor(Color color) {
-		renderer.material.SetColor("_Color", color);
+		shaken = false;
 	}
 	
 	public void TurnOff() {
